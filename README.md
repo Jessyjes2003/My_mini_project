@@ -1,2 +1,2 @@
-# My_mini_project
-The project done by me and my team during the 3rd year of my studies.
+# Sister_birthday_present
+The web pages were done to create a fun birthday present on her 18th birthday😍💕
