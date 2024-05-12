@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scavenger Hunt</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #f0f8ff, #b3e0f2);
+            color: #000080;  /*Dark blue text */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, p {
+            margin-bottom: 20px;
+        }
+        a {
+            color: #4169e1; /* Royal blue links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0000cd; /* Hover color */
+        }
+        .heading {
+            font-family: cursive;  
+        }
+        /* Animated background */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .animated-background .background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #b3e0f2, #f0f8ff, #b3e0f2);
+            animation: animateBackground 30s linear infinite;
+        }
+        @keyframes animateBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+        /* Map styles */
+        #map-container {
+            position: relative;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        #map {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+            /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
+            transition: transform 0.3s ease;
+        }
+        .map-area {
+            position: absolute;
+            cursor: pointer;
+            /*background-color: rgba(0, 0, 0, 0.1);*/
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        .map-area:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        /* Destination page styles */
+        .destination {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .destination h2 {
+            color: #0000cd; /* Medium blue destination titles */
+        }
+        .destination p {
+            color: #191970; /* Dark blue destination text */
+        }
+        .progress-tracker {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0;
+        }
+        .progress-step {
+            flex: 1;
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            position: relative;
+        }
+        .progress-step::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666;
+            border-radius: 50%;
+            background-color: #fff;
+            margin: 0 auto 5px;
+            position: relative;
+            z-index: 1;
+        }
+        .progress-step.active::before {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .progress-step::after {
+            content: '';
+            display: block;
+            width: calc(100% - 20px);
+            height: 2px;
+            background-color: #666;
+            position: absolute;
+            top: 8px;
+            left: calc(50% + 10px);
+            z-index: 0;
+        }
+        .progress-step:last-child::after {
+            display: none; /* Hide the line after the last step */
+        }
+    </style>
+</head>
+<body>    
+    <!-- Animated background -->
+    <div class="animated-background">
+        <div class="background-layer"></div>
+    </div>
+    <div class="container">
+        <h1>Welcome to Your Birthday Adventure!</h1>
+        <div id="map-container">
+            <img id="map" src="Tresure.png" alt="Treasure Map">
+            <a href=gazing.html class="map-area" style="left: 28%; top: 27%; width: 10%; height: 10%;"></a>
+        </div>
+        
+        <h1 class="heading">STARTING POINT</h1>
+        
+    </div>
+</body>
+</html>

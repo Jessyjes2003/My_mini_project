@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONVERSATION</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #f0f8ff, #b3e0f2);
+            color: #000080;  /*Dark blue text */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1, h2, p {
+            margin-bottom: 20px;
+        }
+        a {
+            color: #4169e1; /* Royal blue links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0000cd; /* Hover color */
+        }
+        .heading {
+            font-family: cursive;  
+        }
+        .heading2 {
+            font-family: serif;
+            font-size: 25px;
+        }
+        .heading3 {
+            font-family: monospace;
+            font-size: 20px;
+        }
+        .buttonfont{
+            font-family: cursive;
+            font-size: 13px;
+        }
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .animated-background .background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #b3e0f2, #f0f8ff, #b3e0f2);
+            animation: animateBackground 30s linear infinite;
+        }
+        @keyframes animateBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+        .progress-tracker {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0;
+        }
+        .progress-step {
+            flex: 1;
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            position: relative;
+        }
+        .progress-step::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666;
+            border-radius: 50%;
+            background-color: #fff;
+            margin: 0 auto 5px;
+            position: relative;
+            z-index: 1;
+        }
+        .progress-step.active::before {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .progress-step::after {
+            content: '';
+            display: block;
+            width: calc(100% - 20px);
+            height: 2px;
+            background-color: #666;
+            position: absolute;
+            top: 8px;
+            left: calc(50% + 10px);
+            z-index: 0;
+        }
+        .progress-step:last-child::after {
+            display: none; /* Hide the line after the last step */
+        }
+        #puzzle1 {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+        #puzzle1 h3 {
+            color: #000080;
+        }
+        #puzzle1 p {
+            color: #191970;
+            margin-bottom: 10px;
+        }
+        #answerForm1 {
+            margin-top: 10px;
+        }
+        #answerForm1 input[type="radio"] {
+            margin-right: 5px;
+        }
+        #answerForm1 button {
+            background-color: #4169e1;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #answerForm1 button:hover {
+            background-color: #0000cd;
+        }
+        /* Animation styles */
+        .congratulations-message {
+            animation: slideIn 1s forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .corner-image {
+            position: fixed;
+            width: 200px; /* Adjust the width as needed */
+            height: 300px;
+            /*transform: rotate(45deg);*/
+            z-index: 3; /* Ensure the images appear above other elements */
+            /*transform: rotate(-30deg);*/
+        }
+        .bottom-left-image {
+            bottom: 2%;
+            left: 0;
+        }
+
+        .bottom-right-image {
+            bottom: 2%;
+            right: 1%;
+        }
+    </style>
+</head>
+<body>    
+    <!-- Animated background -->
+    <div class="animated-background">
+        <div class="background-layer"></div>
+    </div>
+    <div class="container">
+        <ul class="progress-tracker">
+            <li class="progress-step active">Start</li>
+            <li class="progress-step active">Gazing</li>
+            <li class="progress-step active">Search</li>
+            <li class="progress-step active">Conversation</li>
+            <li class="progress-step">Partners</li>
+            <li class="progress-step">Emotions</li>
+            <li class="progress-step">Finish</li>
+        </ul>
+        <section id="destination1" class="destination">
+            <h2 class="heading">CONVERSATION</h2>
+            <p>This is the third destination on your adventure. Keep going, you're doing great! <br>Clue : Place where we relax and make a peace of mind.</p>
+            <div id="puzzle1">
+                <h2 class="heading2">Puzzle</h2>
+                <h3 class="heading">From where we can see everthing that happens infront of us.....</h3>
+                <form id="answerForm1">
+                    <input type="radio" id="paris" name="answer" value="paris">
+                    <label for="paris" class="heading3">Front</label><br>
+                    <input type="radio" id="berlin" name="answer" value="berlin">
+                    <label for="berlin" class="heading3">Terrace</label><br>
+                    <button type="submit" class="buttonfont">Submit</button>
+                </form>
+            </div>
+            <div id="congratulations" class="congratulations-message" style="display: none;">
+                <p>Congratulations! Your answer is correct.</p>
+            </div>
+        </section>
+        <br>
+        <a href="partners.html" style="bottom: 50%; font-family: serif;">NEXT DESTINATION</a>
+        
+    <img src="Blue%20Makes%20Me%20Happy_%20Photo.jpeg" class="corner-image bottom-right-image">
+    
+    <script>
+        document.getElementById('answerForm1').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var answer = document.querySelector('input[name="answer"]:checked').value;
+            if (answer === 'paris') {
+                document.getElementById('congratulations').style.display = 'block';
+            } else {
+                alert('Sorry, incorrect answer. Please try again.');
+            }
+        });
+    </script>
+    </div>
+</body>
+</html>
